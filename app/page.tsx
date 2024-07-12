@@ -1,8 +1,15 @@
+import { LoggerClient } from "@/src/Components/utils/LoggerClient";
+
 export default async function Home() {
     const tt = await test();
-    console.clear();
-    console.log(tt.dbs);
-    return <main>Main</main>;
+
+    // console.log(tt.dbs);
+
+    return (
+        <main>
+            <LoggerClient item={tt} />
+        </main>
+    );
 }
 
 async function test() {
