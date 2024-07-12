@@ -1,12 +1,12 @@
 export default async function Home() {
     const tt = await test();
     console.clear();
-    console.log(await tt.json());
+    console.log(tt.dbs);
     return <main>Main</main>;
 }
 
 async function test() {
-    const res = fetch("https://api.timeweb.cloud/api/v1/auth/api-keys", {
+    const res = await fetch("https://api.timeweb.cloud/api/v1/databases", {
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${process.env.TIMEWEB_CLOUD_TOKEN}`,
@@ -14,5 +14,5 @@ async function test() {
         },
     });
 
-    return res;
+    return res.json();
 }
